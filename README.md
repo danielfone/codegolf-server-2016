@@ -16,3 +16,12 @@ BASE_DIR:
 
 REPO_DIR:
   codegolf/*.git # Repos for each tem
+
+
+## Workflow
+
+  0. Check the .config
+  0. bin/setup_course
+  0. bin/git_server
+  0. bin/web_server
+
