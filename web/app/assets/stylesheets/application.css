@@ -14,3 +14,16 @@
  *= require_tree .
  *= require_self
  */
+
+.numeric {
+  text-align: right;
+}
+
+th.hole {
+  width: 4%;
+}
+
+th.calculated,
+td.calculated {
+  background: #e7e7e7 !important;
+}

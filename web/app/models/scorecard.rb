@@ -9,15 +9,15 @@ class Scorecard
   end
 
   def hole_lengths
-    [188] * 18
+    Array.new(18, 0)
   end
 
   def pars
-    [188] * 18
+    Array.new(18, 0)
   end
 
   def bests
-    [188] * 18
+    Array.new(18, 0)
   end
 
   def holes
