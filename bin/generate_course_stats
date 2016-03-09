@@ -1,15 +1,13 @@
 #!/usr/bin/env ruby -w
 
-COURSE_DIR = ARGV.shift or raise "USAGE: #{$0} course_directory"
+require_relative "../course/test/lib/test_case"
 
-sizes = `cd #{COURSE_DIR}; wc -c {best,holes,par}/* 2> /dev/null`
-
-stats = sizes.split("\n").each_with_object({}) do |l,h|
-  size, file = l.split
+stats = Dir.glob("course/{best,holes,par}/*.rb").each_with_object({}) do |file, h|
+  test = TestCase.new file
   _, type, number = file.match(%r[(\w+)/(\d+)]).to_a
   type = "length" if type == "holes"
   next unless number
-  (h[number.to_i] ||= {})[type] = size.to_i
+  (h[number] ||= {})[type] = test.code_size
 end
 
 require 'json'

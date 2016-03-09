@@ -23,4 +23,4 @@ popd
 
 # Generate course statistics
 mkdir -p $RESULTS_DIR
-bin/generate_course_stats course/ > $COURSE_JSON_FILE
+bin/generate_course_stats > $COURSE_JSON_FILE

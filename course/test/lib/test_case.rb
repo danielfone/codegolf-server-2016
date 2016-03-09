@@ -11,7 +11,11 @@ class TestCase
   end
 
   def score
-    @score ||= File.size(path) if valid? and passed?
+    @score ||= code_size if valid? and passed?
+  end
+
+  def code_size
+    @code_size ||= `cat #{path} | grep -v '^#' | grep .`.strip.size
   end
 
   def passed?
@@ -45,7 +49,7 @@ private
   end
 
   def test_dir
-    @test_dir ||= name.split('_')[1..-1].join('_')
+    @test_dir ||= name
   end
 
   def reference_input

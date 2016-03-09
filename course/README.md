@@ -11,14 +11,23 @@ A few things:
     * The infrastructure was hacked together in a week
     * It's trivally easy to break, please don't.
     * Please replace your divots
-* Don't feel like you need to do each hole in order
+* Don't feel like you need to do each hole in order, although they are roughly ordered to balance challenge, fun, and brain fatigue.
 * There are multiple ways to be competitive:
     * Lowest total score
     * Lowest score for a particular hole
     * First team to achieve par on every hole
 
+## Scoring
+
+Fewer characters is better, except the following aren't counted:
+
+* Final newline
+* Entirely blank lines
+* Lines that _only_ consist of a comment, i.e. /^#/
+
 ## Getting Started
 
+* Make sure you're in the root of the codegolf folder
 * Run `test/score` to ensure you can verify your code locally
 * Delete some code
 * Run `test/score` again to make sure your code still works
@@ -28,7 +37,7 @@ A few things:
 
 ## Ruby
 
-The server is running ruby 2.1.0. The course should run fine on most other ruby
+The server is running ruby 2.3.0. The course should run fine on most other ruby
 versions (completely untested) but a few language features useful for golfing
 may be version specific.
 
@@ -62,18 +71,18 @@ You shouldn't need any gems.
 
 You can also also pass in path(s) to run a specific hole.
 
-    $ test/score holes/2_wordcount.rb 
+    $ test/score holes/2_wordcount.rb
     Running 2_wordcount           passed [26 bytes]
     ----
     Your score: 26
 
-The scripts are (almost) all basically unix filters. The test will pipe in 
+The scripts are (almost) all basically unix filters. The test will pipe in
 test/cases/$hole/in.txt and verify that the output matches
 test/cases/$hole/out.txt
 
 In some cases you might want to check the output yourself:
 
-    $ cat test/cases/grades/in.txt | ruby holes/9_grades.rb 
+    $ cat test/cases/grades/in.txt | ruby holes/9_grades.rb
     F
     C
     B
@@ -87,15 +96,8 @@ In some cases you might want to check the output yourself:
 
 ## Pushing
 
-When you push your repo, a post-receive hook will run a canonical test harness
-against a different set of test cases. It will then record your score. Although
-the test cases are different THEY WILL NOT INTRODUCE DIFFERENT EDGE CASES, at
-least, not intentionally. This is probably the fragile part, please be gentle.
+When you push your repo, a post-receive hook will run the tests and record your score.
+The tests are identical to the ones in your local repo, no surprises.
 
-## Course Description
-
-The holes are provided without commentary. It's left as an exercise to the
-players to work out the purpose and requirements for each hole. Reading the
-code and test cases should help.
 
 Good luck.
