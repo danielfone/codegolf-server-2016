@@ -1,0 +1,8 @@
+<h1 class="page-header">New Team</h1>
+
+<%= @team.errors.full_messages.to_sentence %>
+
+<%= form_for @team do |f| %>
+  <%= f.text_field :name, placeholder: "Name" %>
+  <%= f.submit "Create" %>
+<% end %>

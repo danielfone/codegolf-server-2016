@@ -10,10 +10,11 @@
  * files in this directory. Styles in this file should be added after the last require_* statement.
  * It is generally better to create a new file per style scope.
  *
- *= require bootstrap.min
  *= require_tree .
  *= require_self
  */
+
+@import "bootstrap.min";
 
 .numeric {
   text-align: right;
@@ -26,4 +27,18 @@ th.hole {
 th.calculated,
 td.calculated {
   background: #e7e7e7 !important;
+}
+
+.field_with_errors {
+  display: inline-block;
+  border: red 2px dashed;
+  padding: 2px;
+}
+
+.alert-notice {
+  @extend .alert-success;
+}
+
+.alert-alert {
+  @extend .alert-danger;
 }

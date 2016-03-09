@@ -5,7 +5,7 @@ class Scorecard
   end
 
   def teams
-    []
+    Team.all
   end
 
   def hole_lengths
@@ -24,6 +24,8 @@ private
 
   def holes
     JSON.parse File.read COURSE_JSON_FILE
+  rescue
+    {}
   end
 
 end
