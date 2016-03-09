@@ -16,16 +16,33 @@ class Team
   }
 
   def self.all
-    Dir.glob("#{TEAM_DB}/*.#{DB_EXTENSION}").map { |e| new filename: e }
+    Dir.glob("#{TEAM_DB}/*.#{DB_EXTENSION}")
+      .map { |e| new filename: e }
+      .sort_by { |t| t.total_score || Float::INFINITY }
   end
 
   def filename=(filename)
+    @filename = filename
     @name = File.basename filename, ".#{DB_EXTENSION}"
+  end
+
+  def filename
+    @filename ||= "#{TEAM_DB}/#{name}.#{DB_EXTENSION}"
   end
 
   def save
     return false unless valid?
     add_team_to_database
+  end
+
+  def scores
+    @scores ||= JSON.parse File.read filename
+  rescue
+    Array.new(18,nil)
+  end
+
+  def total_score
+    @total_score ||= Tally.safe_sum scores
   end
 
 private

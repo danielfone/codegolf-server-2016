@@ -31,8 +31,8 @@ REPO_DIR:
   * [ ] Mirror ruby docs
   * [x] Web: pull course details from BASE_DIR/results
   * [x] bin: setup course with results/ and course/
-  * [ ] Web: pull team details from BASE_DIR/results
-  * [ ] web: create new team
+  * [x] Web: pull team details from BASE_DIR/results
+  * [x] web: create new team
 
   * [ ] git hook: score holes and write to results
   * [ ] new holes!
