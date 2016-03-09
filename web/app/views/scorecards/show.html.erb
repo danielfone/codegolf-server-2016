@@ -3,6 +3,13 @@
   <%= link_to "Add Team", new_team_path %>
 </p>
 
+<p>
+  Getting the code:
+  <code>
+    git clone git://<%= request.host %>/<i style="color:#777">team-name</i>/codegolf.git
+  </code>
+</p>
+
 <% if @card.hole_names.any? %>
   <div class="table-responsive">
     <table class="table table-striped leaderboard table-bordered table-condensed small">

@@ -33,6 +33,8 @@ class Team
   def save
     return false unless valid?
     add_team_to_database
+    mkteam!
+    errors.empty?
   end
 
   def scores
@@ -48,7 +50,8 @@ class Team
 private
 
   def mkteam!
-    `#{BIN_MKTEAM} #{name}`
+    output = `cd ..; #{BIN_MKTEAM} #{name} 2>&1`
+    errors.add :base, output unless $?.success?
   end
 
   def parameterise_name

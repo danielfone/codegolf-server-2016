@@ -9,16 +9,12 @@ if [[ $# -lt 1 ]]; then
 fi
 
 TEAMNAME=$1
-REPO_DIR=$TEAM_REPO_BASE_DIR/$TEAMNAME
-REPO_PATH=$REPO_DIR/codegolf.git
+REPO_PATH=$BASE_GIT_DIR/$TEAMNAME/codegolf.git
 
-mkdir -p $REPO_DIR
-git clone --bare $MASTER_REPO_DIR $REPO_PATH
+if [ ! -d $REPO_PATH ]; then
+  mkdir -p $REPO_PATH
+  git clone --bare $MASTER_REPO_DIR $REPO_PATH
+fi
+
 cp git_hooks/* $REPO_PATH/hooks
-chmod +x -R $REPO_PATH/hooks/*
-sudo chown -R golfer:golfer $REPO_PATH
-cd $MASTER_REPO_DIR
-git remote add $TEAMNAME $REPO_PATH
-
-cd ../webapp
-rake team:create name=$TEAMNAME
+chmod -R +x $REPO_PATH/hooks/*

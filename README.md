@@ -33,6 +33,7 @@ REPO_DIR:
   * [x] bin: setup course with results/ and course/
   * [x] Web: pull team details from BASE_DIR/results
   * [x] web: create new team
+  * [x] web: create new team repo
 
   * [ ] git hook: score holes and write to results
   * [ ] new holes!

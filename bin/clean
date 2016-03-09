@@ -5,9 +5,11 @@ set -o errexit
 
 source .config
 
-read -p "Remove $BASE_DIR [y/N]? " choice
+repo_glob="$BASE_GIT_DIR/**/codegolf.git"
+
+read -p "Remove $BASE_DIR and $repo_glob [y/N]? " choice
 
 [[ $choice == 'y' ]] || exit -1
 
-echo "Removing $BASE_DIR"
 rm -fr $BASE_DIR
+rm -fr $repo_glob

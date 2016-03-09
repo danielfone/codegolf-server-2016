@@ -7,4 +7,5 @@ source .config
 cd web
 COURSE_JSON_FILE=$COURSE_JSON_FILE \
 TEAM_DB=$RESULTS_DIR \
+BIN_MKTEAM=bin/mkteam \
   bin/rails server

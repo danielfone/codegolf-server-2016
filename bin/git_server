@@ -4,10 +4,10 @@ set -o nounset
 set -o errexit
 source .config
 
-mkdir -p $GIT_REPO_DIR
+mkdir -p $BASE_GIT_DIR
 
 git daemon \
   --verbose \
   --enable=receive-pack \
   --export-all \
-  --base-path=$GIT_REPO_DIR
+  --base-path=$BASE_GIT_DIR
