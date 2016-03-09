@@ -25,3 +25,13 @@ REPO_DIR:
   0. bin/git_server
   0. bin/web_server
 
+
+## TODO
+
+  * [ ] Mirror ruby docs
+  * [x] Web: pull course details from BASE_DIR/results
+  * [ ] Web: pull team details from BASE_DIR/results
+  * [ ] web: create new team
+  * [ ] bin: setup course with results/ and course/
+  * [ ] git hook: score holes and write to results
+  * [ ] new holes!

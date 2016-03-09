@@ -1,5 +1,7 @@
 #!/bin/bash
 
+set -o nounset
+set -o errexit
 source .config
 
 mkdir -p $GIT_REPO_DIR

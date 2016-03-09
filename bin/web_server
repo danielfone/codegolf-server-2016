@@ -1,4 +1,9 @@
 #!/bin/bash
 
+set -o nounset
+set -o errexit
+source .config
+
 cd web
-bin/rails server
+COURSE_JSON_FILE=$COURSE_JSON_FILE \
+  bin/rails server

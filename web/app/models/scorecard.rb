@@ -1,7 +1,7 @@
 class Scorecard
 
   def hole_names
-    (1..18).to_a
+    holes.keys
   end
 
   def teams
@@ -9,19 +9,21 @@ class Scorecard
   end
 
   def hole_lengths
-    Array.new(18, 0)
+    holes.map { |h,v| v['length'] }
   end
 
   def pars
-    Array.new(18, 0)
+    holes.map { |h,v| v['par'] }
   end
 
   def bests
-    Array.new(18, 0)
+    holes.map { |h,v| v['best'] }
   end
 
+private
+
   def holes
-    []
+    JSON.parse File.read COURSE_JSON_FILE
   end
 
 end
