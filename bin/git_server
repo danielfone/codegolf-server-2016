@@ -1,0 +1,11 @@
+#!/bin/bash
+
+source .config
+
+mkdir -p $GIT_REPO_DIR
+
+git daemon \
+  --verbose \
+  --enable=receive-pack \
+  --export-all \
+  --base-path=$GIT_REPO_DIR
