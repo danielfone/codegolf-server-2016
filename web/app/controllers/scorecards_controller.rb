@@ -1,4 +1,4 @@
-class ScorecardController < ApplicationController
+class ScorecardsController < ApplicationController
 
   def show
     @meta_refresh = 10

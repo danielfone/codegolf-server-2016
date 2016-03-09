@@ -1,4 +1,4 @@
 Rails.application.routes.draw do
-  root 'scorecard#show'
+  root 'scorecards#show'
   resource :scorecard
 end
