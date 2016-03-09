@@ -1,4 +1,9 @@
-#!/usr/bin/env ruby -w
+# The classic programming challenge
+# Read the numbers from STDIN
+# For multiples of 3 print Fizz
+# For multiples of 5 print Buzz
+# For multiples of both print both
+# Otherwise print the original number
 
 class Numeric
   def multiple_of_5?

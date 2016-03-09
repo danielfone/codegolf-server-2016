@@ -1,5 +1,6 @@
 #!/usr/bin/env ruby -w
 
+
 class NilClass
   def try
     nil
