@@ -5,6 +5,12 @@ set -o errexit
 
 source .config
 
+# Run tests
+echo "Running tests…"
+pushd course
+  test/score best/* holes/* > /dev/null
+popd
+
 # Setup master repo to clone for teams
 mkdir -p $MASTER_REPO_DIR
 cp -r course/{holes,test,README.md} $MASTER_REPO_DIR

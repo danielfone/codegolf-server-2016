@@ -28,10 +28,10 @@ private
       puts "Your score: #{total}"
     else
       puts
-      puts "Errors"
+      STDERR.puts "Errors"
       @tests.each do |test|
         if test.errors.any?
-          puts test.errors.map { |e| "\t#{e}" }
+          STDERR.puts test.errors.map { |e| "\t#{e}" }
         elsif not test.passed?
           render_diff test
         end
@@ -44,9 +44,9 @@ private
   end
 
   def render_diff(t)
-    puts
-    puts "#{t.name} diff:"
-    puts t.diff
+    STDERR.puts
+    STDERR.puts "#{t.name} diff:"
+    STDERR.puts t.diff
   end
 
 end
