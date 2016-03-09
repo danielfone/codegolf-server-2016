@@ -1,6 +1,7 @@
 #!/usr/bin/ruby -w
 require_relative 'lib/test_harness'
 require_relative 'lib/test_case'
+require 'json'
 
 STDOUT.sync = true
 
@@ -10,4 +11,7 @@ tests = holes.map { |h| TestCase.new h }
 
 harness = TestHarness.new tests
 harness.run
+
+File.write ENV['RESULTS_FILE'], JSON.pretty_generate(harness.scores) if ENV['RESULTS_FILE']
+
 exit harness.passed? ? 0 : -1

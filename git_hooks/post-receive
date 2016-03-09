@@ -2,19 +2,17 @@
 
 set -o errexit
 
-export RAILS_ENV=production
+# Write a useful path in here when setting up course
 
-REPOPATH=`pwd`
+REPO_DIR=`pwd`
 TMPDIR=`mktemp -d`
-TEAM=`echo $REPOPATH | cut -d'/' -f3`
-cd $TMPDIR
-git clone $REPOPATH $TMPDIR
-cp -r /vagrant/master_repo/test $TMPDIR
-echo
+TEAM=`echo $REPO_DIR | rev | cut -d'/' -f2 | rev`
+TEAM_RESULTS="$RESULTS_DIR/$TEAM.scores.json"
 echo "You are team $TEAM"
-source "$HOME/.rvm/scripts/rvm"
-cd /vagrant/webapp
-bundle exec rake team:score path=$TMPDIR name=$TEAM
+
+cd $MASTER_REPO_DIR
+git clone $REPO_DIR $TMPDIR
+RESULTS_FILE=$TEAM_RESULTS \
+  test/score $TMPDIR/holes/*.rb
 echo
-cd ..
 rm -fr $TMPDIR

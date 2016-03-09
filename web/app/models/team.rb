@@ -38,7 +38,10 @@ class Team
   end
 
   def scores
-    @scores ||= JSON.parse File.read filename
+    @scores ||= begin
+      results = JSON.parse File.read filename
+      1.upto(18).map {|i| results[i.to_s] }
+    end
   rescue
     Array.new(18,nil)
   end

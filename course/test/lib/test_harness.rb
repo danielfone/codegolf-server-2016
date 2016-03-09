@@ -20,6 +20,10 @@ class TestHarness
     @tests.all?(&:passed?)
   end
 
+  def scores
+    Hash[@tests.map { |t| [t.hole, t.score] }]
+  end
+
 private
 
   def render_result
@@ -32,7 +36,7 @@ private
       @tests.each do |test|
         if test.errors.any?
           STDERR.puts test.errors.map { |e| "\t#{e}" }
-        elsif not test.passed?
+        elsif ! test.passed?
           render_diff test
         end
       end

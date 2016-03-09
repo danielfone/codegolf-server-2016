@@ -7,7 +7,7 @@ class TestCase
   end
 
   def hole
-    name.split('_').first.to_i
+    @hole ||= name.split('_').first.to_i
   end
 
   def score
@@ -15,7 +15,7 @@ class TestCase
   end
 
   def passed?
-    @passed ||= valid? && diff.empty?
+    @passed ||= valid? && ran? && diff.empty?
   end
 
   def valid?
@@ -28,6 +28,20 @@ class TestCase
 
   def name
     @name ||= File.basename path, '.rb'
+  end
+
+  def diff
+    @diff ||= reference_output_lines.each_with_index.select { |l,i| l != output_lines[i] }.map do |l,i|
+      "Line #{i+1}: expected #{l.inspect} got #{output_lines[i].inspect}"
+    end
+  end
+
+private
+
+  def ran?
+    output_lines
+    @errors.push "failed with exit status #{$?.exitstatus}" unless  $?.success?
+    @errors.empty?
   end
 
   def test_dir
@@ -48,12 +62,6 @@ class TestCase
 
   def reference_output_lines
     @reference_output_lines ||= File.readlines reference_output
-  end
-
-  def diff
-    @diff ||= reference_output_lines.each_with_index.select { |l,i| l != output_lines[i] }.map do |l,i| 
-      "Line #{i+1}: expected #{l.inspect} got #{output_lines[i].inspect}"
-    end
   end
 
   def output_lines

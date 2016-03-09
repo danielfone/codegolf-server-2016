@@ -6,6 +6,9 @@ source .config
 
 mkdir -p $BASE_GIT_DIR
 
+export MASTER_REPO_DIR
+export RESULTS_DIR
+
 git daemon \
   --verbose \
   --enable=receive-pack \
