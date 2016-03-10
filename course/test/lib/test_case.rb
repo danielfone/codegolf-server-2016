@@ -24,7 +24,6 @@ class TestCase
 
   def valid?
     @errors.clear
-    @errors.push "#{reference_input} not found" unless File.exists?(reference_input)
     @errors.push "#{reference_output} not found" unless File.exists?(reference_output)
     @errors.push "#{path} not found" unless File.exists?(path)
     @errors.empty?
@@ -61,7 +60,7 @@ private
   end
 
   def reference_input_lines
-    @reference_input_lines ||= File.readlines reference_input
+    @reference_input_lines ||= File.readlines reference_input if File.exists?(reference_input)
   end
 
   def reference_output_lines

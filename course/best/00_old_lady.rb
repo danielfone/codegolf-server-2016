@@ -1,0 +1,3 @@
+i=-2
+d=[["fly","I don't know why she swallowed the fly. Perhaps she'll die."],["spider","It wriggled and jiggled and tickled inside her."," that wriggled and jiggled and tickled inside her"],["bird","How absurd to swallow a bird!"],["cat","Imagine that, to swallow a cat!"],["dog","What a hog, to swallow a dog!"],["goat","Just opened her throat and swallowed a goat!"],["cow","I don't know how she swallowed a cow!"],["horse","She's dead, of course!"]]
+d.map{|n,a|puts"I know an old lady who swallowed a #{n}.",a;(i+=1)>-1&&i<6&&puts(i.downto(0).map{|x|"She swallowed the #{d[x+1][0]} to catch the #{d[x][0]}#{d[x][2]}."},d[0][1]);puts}
