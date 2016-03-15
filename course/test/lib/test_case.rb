@@ -15,7 +15,7 @@ class TestCase
   end
 
   def code_size
-    @code_size ||= `cat #{path} | grep -v '^#' | grep .`.strip.size
+    @code_size ||= `cat #{path} | grep -v '^\s*#' | grep .`.strip.size
   end
 
   def passed?
