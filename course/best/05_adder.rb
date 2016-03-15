@@ -1,1 +1,1 @@
-p$<.read.split.map(&:to_i).reduce(:+)
+$<.map{|l|p l.split.map(&:to_i).reduce(:+)}
