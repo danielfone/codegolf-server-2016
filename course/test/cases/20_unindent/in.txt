@@ -1,0 +1,43 @@
+   See, the interesting thing about this text
+     is that while it seems like the first line defines an indent
+       it's actually the last line which has the smallest indent
+
+    there are also some blank lines
+
+    both with and without extra spaces in them
+
+    and it just goes on and on
+
+       this text
+
+    and starts to repeat itself
+   See, the interesting thing about this text
+     is that while it seems like the first line defines an indent
+       it's actually the last line which has the smallest indent
+
+    there are also some blank lines
+
+    both with and without extra spaces in them
+
+    and it just goes on and on
+
+       this text
+
+    and starts to repeat itself
+   See, the interesting thing about this text
+     is that while it seems like the first line defines an indent
+       it's actually the last line which has the smallest indent
+
+    there are also some blank lines
+
+    	This line has a tab as well!
+
+    both with and without extra spaces in them
+
+    and it just goes on and on
+
+       this text
+
+    and starts to repeat itself
+
+  The End.
