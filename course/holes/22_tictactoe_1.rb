@@ -1,19 +1,35 @@
 #
-# TODO: write description
+# Take a line of naughts, crosses, and dots
+# and output a formatted tic-tac-toe board
+#
+# Each line will look like:
+#
+#   "xoxoxooo."
+#   "x..o...x."
+#
+# And each position will correspond to a number from the grid
+#
+#     1 | 2 | 3
+#     --+---+--
+#     4 | 5 | 6
+#     --+---+--
+#     7 | 8 | 9
+#
+# e.g.
+#
+#     x..o...x.
+#
+# would need to produce:
+#     x |   |
+#     --+---+--
+#     o |   |
+#     --+---+--
+#       | x |
 #
 
 class Board
   InvalidPlacementError = Class.new StandardError
 
-  # Takes a simple string like e.g.
-  #   "xoxoxooo."
-  #   "x..o...x."
-  #  Each position will correspond to a number from the grid
-  #     1 | 2 | 3
-  #     --+---+--
-  #     4 | 5 | 6
-  #     --+---+--
-  #     7 | 8 | 9
   def load(input)
     @positions = input.chars
     raise InvalidPlacementError if @positions.size > 9

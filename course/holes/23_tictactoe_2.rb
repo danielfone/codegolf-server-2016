@@ -1,5 +1,9 @@
 #
-# TODO: write description
+# Take a line of naughts, crosses, and dots
+# and identifier the winner of the board.
+# If the board has no winner, print a '?'
+#
+# The input has an identical format to the ticatactoe_1 hole
 #
 
 class Board
