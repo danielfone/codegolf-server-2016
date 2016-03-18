@@ -1,1 +1,1 @@
-puts$<.map&:size
+puts$<.map &:size
