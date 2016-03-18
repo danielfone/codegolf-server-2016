@@ -37,10 +37,3 @@ REPO_DIR:
 
   * [x] git hook: score holes and write to results
   * [ ] new holes!
-
-Holes to add:
-  Old woman: https://github.com/kytrinyx/one-undo (replace 99 bottles?)
-  tictactoe?
-  stable marriage
-  stripheredoc
-  etc

@@ -2,12 +2,16 @@
 
 require_relative "../course/test/lib/test_case"
 
-stats = Dir.glob("course/{best,holes,par}/*.rb").each_with_object({}) do |file, h|
+stats = Dir.glob("course/{holes,best}/*.rb").each_with_object({}) do |file, h|
   test = TestCase.new file
   _, type, number = file.match(%r[(\w+)/(\d+)]).to_a
   type = "length" if type == "holes"
   next unless number
   (h[number] ||= {})[type] = test.code_size
+end
+
+stats.each do |number, scores|
+  stats[number]['par'] = scores['best'] + ((scores['length'] - scores['best']) / 4)
 end
 
 require 'json'

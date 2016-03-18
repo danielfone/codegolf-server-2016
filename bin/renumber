@@ -13,6 +13,6 @@ fi
 HOLE=$1
 NUMBER=$2
 
-mv course/holes/*_$HOLE.rb  course/holes/${NUMBER}_$HOLE.rb
-mv course/best/*_$HOLE.rb   course/best/${NUMBER}_$HOLE.rb
-mv course/test/cases/*_$HOLE   course/test/cases/${NUMBER}_$HOLE
+mv course/holes/*$HOLE.rb  course/holes/${NUMBER}_$HOLE.rb
+mv course/best/*$HOLE.rb   course/best/${NUMBER}_$HOLE.rb
+mv course/test/cases/*$HOLE course/test/cases/${NUMBER}_$HOLE
