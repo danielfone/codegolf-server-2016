@@ -1,3 +1,40 @@
+# Sort the Textbooks
+#
+# School is starting soon and so it's time to get our textbooks in order.
+# You need to sort your books in alphabetical order
+#
+# Input:
+#
+#  _
+# | |  _
+# |F| | |
+# |o|_|P|
+# |o|B|P|
+# | |a|C|
+# | |r|G|
+# |_|_|_|
+#
+# Output:
+#
+#    _
+#   | |_
+#   |F| |
+#  _|o|P|
+# |B|o|P|
+# |a| |C|
+# |r| |G|
+# |_|_|_|
+
+# Input
+
+# The input will be a set of books which need to rearranged alphabetically.
+# Check the relevent test case for an example.
+
+# Output
+
+# The output will need to be the same set of books organized in alphabetical order.
+# The height of the books must stay the same and the title must have the same spacing from the top when re-arranged.
+
 class Bookshelf
 
   def initialize(input)
@@ -12,7 +49,6 @@ private
 
   def reordered_books
     new_books = books.dup
-    # go through each title
     sorted_titles.each_with_index do |title, book_index|
       write_book title, book_index, new_books
     end
