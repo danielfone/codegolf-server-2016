@@ -1,6 +1,7 @@
-#!/usr/bin/env ruby -w
+# Read the numbers on the input
+# and determine if each number is a member of the fibonacci sequence
 
-QUADRATIC_ZERO_ORDER_TERM = 4
+QUADRATIC_ZERO_ORDER_TERM = 4 # This is a magic number in fibonacci land
 
 class Numeric
   def is_a_fibonacci?

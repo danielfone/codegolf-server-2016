@@ -1,4 +1,5 @@
-#!/usr/bin/env ruby -w
+# For each pair of lines from the input
+# determine if the words is are anagrams of eachother
 
 class String
 

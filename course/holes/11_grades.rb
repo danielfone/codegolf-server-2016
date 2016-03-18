@@ -1,4 +1,4 @@
-#!/usr/bin/env ruby -w
+# Translate percentages to alphabetical grades
 
 STDIN.read.each_line do |line|
   score = line.to_f

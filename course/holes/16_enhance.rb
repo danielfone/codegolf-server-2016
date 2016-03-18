@@ -1,4 +1,4 @@
-#!/usr/bin/env ruby -w
+# Double the size of the ASCII input
 
 class ASCIIEnhancer
 
