@@ -1,0 +1,34 @@
+#!/usr/bin/env ruby
+
+def reject_update(message)
+  STDERR.puts message
+  exit 1
+end
+
+ref, old_rev, new_rev = ARGV
+
+old_files=`git ls-tree -r --name-only #{old_rev}`.split.sort
+new_files=`git ls-tree -r --name-only #{new_rev}`.split.sort
+
+added_files = new_files - old_files
+
+added_files.any? and reject_update <<-MESSAGE
+       .----------.
+      /  .-.  .-.  \\
+     /   | |  | |   \\
+     \\   `-'  `-'  _/
+     /\\     .--.  / |
+     \\ |   /  /  / /
+     / |  `--'  /\\ \\
+      /`-------'  \\ \\
+
+*******************************************
+**** Push rejected. New files detected ****
+*******************************************
+
+Added files:
+\t#{added_files.join "\n\t"}
+
+Delete these files, commit, and push again.
+
+MESSAGE
